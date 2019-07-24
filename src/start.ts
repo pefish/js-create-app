@@ -26,4 +26,5 @@ shellHelper.execSync(`cd client && cat package.json | sed "s/template/${projectN
 shellHelper.execSync(`cd server && cat package.json | sed "s/template/${projectName}/g" > temp.json && rm -rf package.json && mv temp.json package.json`)
 shellHelper.execSync(`cd client && yarn`)
 shellHelper.execSync(`cd server && yarn`)
+shellHelper.execSync(`cd server && cp config/sample.json config/local.json && cp config/sample.json config/prod.json`)
 global.logger.info(`done !!!`)
