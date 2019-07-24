@@ -23,6 +23,7 @@ shellHelper.execSync(`git clone git@github.com:pefish/create-electron-app-templa
 shellHelper.cd(projectName)
 shellHelper.execSync(`rm -rf .git .gitignore`)
 shellHelper.execSync(`cd client && cat package.json | sed "s/template/${projectName}/g" > temp.json && rm -rf package.json && mv temp.json package.json`)
+shellHelper.execSync(`cd client/public && cat index.html | sed "s/template/${projectName}/g" > temp.html && rm -rf index.html && mv temp.html index.html`)
 shellHelper.execSync(`cd server && cat package.json | sed "s/template/${projectName}/g" > temp.json && rm -rf package.json && mv temp.json package.json`)
 shellHelper.execSync(`cd client && yarn`)
 shellHelper.execSync(`cd server && yarn`)
