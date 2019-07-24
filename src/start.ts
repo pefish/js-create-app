@@ -9,11 +9,12 @@ let projectName
 const program = new commander.Command(packageJson.name)
   .version(packageJson.version, '-v, --version')
   .arguments('<project-directory>')
+  .name(packageJson.appName)
   .usage(`${chalk.green('<project-directory>')} [options]`)
   .action(name => {
     projectName = name
   })
-  .option('--verbose', 'print additional logs')
+  // .option('--verbose', 'print additional logs')
   .allowUnknownOption()
   .parse(process.argv);
 

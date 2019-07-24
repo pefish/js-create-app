@@ -10,7 +10,7 @@ Base on react、electron、typescript、react-router、antd and mobx.
 ## Quick Overview
 
 ```sh
-yarn global add create-electron-app
+yarn global add @pefish/create-electron-app
 create-electron-app my-app
 cd my-app
 yarn start-client

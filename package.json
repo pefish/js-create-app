@@ -1,19 +1,20 @@
 {
-  "name": "create-electron-app",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@pefish/create-electron-app",
+  "version": "0.1.0",
   "dependencies": {
     "@pefish/js-helper-shell": "^0.0.4",
     "@pefish/js-node-assist": "^0.6.6",
     "chalk": "^2.4.2",
     "commander": "^2.20.0"
   },
+  "appName": "create-electron-app",
   "bin": {
-    "create-electron-app": "lib/start.js"
+    "create-electron-app": "app.js"
   },
   "scripts": {
     "build": "rm -rf lib && tsc",
-    "start": "ts-node src/start.ts"
+    "start": "ts-node src/start.ts",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
