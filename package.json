@@ -1,6 +1,6 @@
 {
   "name": "@pefish/create-app",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
     "@pefish/js-helper-shell": "^0.1.1",
     "@pefish/js-node-assist": "^0.6.12",
