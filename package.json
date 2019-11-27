@@ -1,15 +1,15 @@
 {
-  "name": "@pefish/create-electron-app",
-  "version": "0.1.4",
+  "name": "@pefish/create-app",
+  "version": "0.2.0",
   "dependencies": {
-    "@pefish/js-helper-shell": "^0.0.4",
-    "@pefish/js-node-assist": "^0.6.6",
+    "@pefish/js-helper-shell": "^0.1.1",
+    "@pefish/js-node-assist": "^0.6.12",
     "chalk": "^2.4.2",
     "commander": "^2.20.0"
   },
-  "appName": "create-electron-app",
+  "appName": "create-app",
   "bin": {
-    "create-electron-app": "app.js"
+    "create-app": "app.js"
   },
   "scripts": {
     "build": "rm -rf lib && tsc",
