@@ -12,6 +12,7 @@ export default class Electron implements InterfaceTemplate {
     shellHelper.execSync(`cd client && yarn`)
     shellHelper.execSync(`cd server && yarn`)
     shellHelper.execSync(`cd server && cp config/sample.yaml config/prod.yaml`)
+    shellHelper.execSync(`cd server && cp config/sample.yaml config/local.yaml`)
   }
 
   getTemplateRepoUrl(): string {
