@@ -1,6 +1,19 @@
 {
   "name": "@pefish/create-app",
-  "version": "0.2.2",
+  "version": "0.2.3",
+  "description": "create app what you want",
+  "author": "pefish <pefish@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pefish/create-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pefish/create-app/issues"
+  },
+  "homepage": "https://github.com/pefish/create-app",
+  "keywords": [
+    "create app"
+  ],
   "dependencies": {
     "@pefish/js-helper-shell": "^0.1.1",
     "@pefish/js-node-assist": "^0.6.12",
