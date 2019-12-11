@@ -1,27 +1,41 @@
-# Create Electron App
+# Help
 
-Create Electron apps with no build configuration.
-
-Create React App works on macOS.<br>
-If something doesn’t work, please [file an issue](https://github.com/pefish/create-electron-app/issues/new).
-
-Base on react、electron、typescript、react-router、antd and mobx.
-
-## Quick Overview
-
-```sh
-yarn global add @pefish/create-electron-app
-create-electron-app my-app
-cd my-app
-yarn start-client
-yarn start-server
+```shell
+create-app --help
 ```
 
-When you’re ready to deploy to production, just `yarn pack-mac`.
+# Create Electron App
 
-### Get Started Immediately
+```shell
+create-app electron my-project -d "my test project"
+```
 
-You **don’t** need to install or configure tools like Webpack or Babel.<br>
-They are preconfigured and hidden so that you can focus on the code.
+## Create React App
 
-Just create a project, and you’re good to go.
+```shell
+create-app react my-project -d "my test project"
+```
+
+## Create Golang Web Server
+
+```shell
+create-app golang-web-server my-project -d "my test project"
+```
+
+## Create Nodejs Web Server
+
+```shell
+create-app nodejs-web-server my-project -d "my test project"
+```
+
+## Create Typescript App
+
+```shell
+create-app ts-app my-project -d "my test project"
+```
+
+## Create Typescript Lib
+
+```shell
+create-app ts-lib my-project -d "my test project"
+```
