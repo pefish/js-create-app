@@ -7,6 +7,7 @@ import ShellHelper from '@pefish/js-helper-shell'
 import TsApp from './template/ts_app'
 import Electron from './template/electron'
 import GolangWebServer from './template/golang_web_server'
+import GolangGrpcServer from './template/golang_grpc_server'
 
 const packageJson = require('../package.json')
 
@@ -14,6 +15,7 @@ const templateMap: {[type: string]: InterfaceTemplate} = {
   react: null,
   electron: new Electron(),
   [`golang-web-server`]: new GolangWebServer(),
+  [`golang-grpc-server`]: new GolangGrpcServer(),
   [`nodejs-web-server`]: null,
   [`ts-app`]: new TsApp(),
   [`ts-lib`]: new TsLib(),
