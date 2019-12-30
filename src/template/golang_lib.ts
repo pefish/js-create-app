@@ -10,7 +10,7 @@ export default class GolangLib implements InterfaceTemplate {
     if (!repoUrl) {
       throw new Error(`repo url is required`)
     }
-    let packageName = ``
+    let packageName: string = ``
     const atPos = repoUrl.indexOf(`@`)
     if (atPos !== -1) {
       const colonPos = repoUrl.indexOf(`:`)
@@ -26,7 +26,6 @@ export default class GolangLib implements InterfaceTemplate {
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
     shellHelper.execSync(`cat go.mod | sed "s/create_golang_lib_template/${packageName.replaceAll_(`/`, "\\\/")}/g" > temp && rm -rf go.mod && mv temp go.mod`)
-    shellHelper.execSync(`yarn`)
   }
 
 }
