@@ -44,8 +44,8 @@ if (!templateMap[appType]) {
   process.exit(1)
 }
 const shellHelper = new ShellHelper()
-templateMap[appType].do(shellHelper, projectName, program.desc, JSON.parse(program.other))
-if (program[`repo`]) {
+templateMap[appType].do(shellHelper, projectName, program.desc, program.repo, JSON.parse(program.other))
+if (program.repo) {
   shellHelper.execSync(`git init`)
   shellHelper.execSync(`git remote add origin ${program.repo}`)
 }

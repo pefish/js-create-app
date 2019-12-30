@@ -6,7 +6,7 @@ export default class TsApp implements InterfaceTemplate {
     return `git@github.com:pefish/create-typescript-app-template.git`
   }
 
-  do(shellHelper: ShellHelper, projectName: string, desc: string, opts: {[x: string]: any}): void {
+  do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, opts: {[x: string]: any}): void {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
