@@ -3,6 +3,7 @@ import commander from 'commander'
 import chalk from 'chalk'
 import InterfaceTemplate from './template/interface_template'
 import TsLib from './template/ts_lib'
+import GolangLib from './template/golang_lib'
 import ShellHelper from '@pefish/js-helper-shell'
 import TsApp from './template/ts_app'
 import Electron from './template/electron'
@@ -19,6 +20,7 @@ const templateMap: {[type: string]: InterfaceTemplate} = {
   [`nodejs-web-server`]: null,
   [`ts-app`]: new TsApp(),
   [`ts-lib`]: new TsLib(),
+  [`golang-lib`]: new GolangLib(),
 }
 
 let projectName, appType
@@ -34,6 +36,7 @@ const program = new commander.Command(packageJson.name)
   .allowUnknownOption()
   .option('-r, --repo [string]', 'repo to relate', ``)
   .option('-d, --desc [string]', 'description', ``)
+  .option('-o, --other [string]', 'other data. json string', `{}`)
   .parse(process.argv);
 
 if (!templateMap[appType]) {
@@ -41,9 +44,9 @@ if (!templateMap[appType]) {
   process.exit(1)
 }
 const shellHelper = new ShellHelper()
-templateMap[appType].do(shellHelper, projectName, program[`desc`])
+templateMap[appType].do(shellHelper, projectName, program.desc, JSON.parse(program.other))
 if (program[`repo`]) {
   shellHelper.execSync(`git init`)
-  shellHelper.execSync(`git remote add origin ${program[`repo`]}`)
+  shellHelper.execSync(`git remote add origin ${program.repo}`)
 }
 console.info(`done !!!`)
