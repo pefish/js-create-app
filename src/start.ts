@@ -14,7 +14,6 @@ import GolangGrpcServer from './template/golang_grpc_server'
 const packageJson = require('../package.json')
 
 const templateMap: {[type: string]: InterfaceTemplate} = {
-  react: null,
   electron: new Electron(),
   [`golang-web-server`]: new GolangWebServer(),
   [`golang-grpc-server`]: new GolangGrpcServer(),
