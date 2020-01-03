@@ -6,6 +6,7 @@ import TsLib from './template/ts_lib'
 import GolangLib from './template/golang_lib'
 import ShellHelper from '@pefish/js-helper-shell'
 import TsApp from './template/ts_app'
+import ReactApp from './template/react_app'
 import Electron from './template/electron'
 import GolangWebServer from './template/golang_web_server'
 import GolangGrpcServer from './template/golang_grpc_server'
@@ -21,6 +22,7 @@ const templateMap: {[type: string]: InterfaceTemplate} = {
   [`ts-app`]: new TsApp(),
   [`ts-lib`]: new TsLib(),
   [`golang-lib`]: new GolangLib(),
+  [`react-app`]: new ReactApp(),
 }
 
 let projectName, appType
