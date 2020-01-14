@@ -2,7 +2,7 @@ import InterfaceTemplate from "./interface_template";
 import ShellHelper from '@pefish/js-helper-shell'
 
 export default class Electron implements InterfaceTemplate {
-  do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, opts: {[x: string]: any}): void {
+  do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)

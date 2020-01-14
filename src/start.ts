@@ -1,5 +1,5 @@
 import '@pefish/js-node-assist'
-import commander from 'commander'
+import commander, { Command } from 'commander'
 import chalk from 'chalk'
 import InterfaceTemplate from './template/interface_template'
 import TsLib from './template/ts_lib'
@@ -13,39 +13,76 @@ import GolangGrpcServer from './template/golang_grpc_server'
 
 const packageJson = require('../package.json')
 
-const templateMap: {[type: string]: InterfaceTemplate} = {
-  electron: new Electron(),
-  [`golang-web-server`]: new GolangWebServer(),
-  [`golang-grpc-server`]: new GolangGrpcServer(),
-  [`nodejs-web-server`]: null,
-  [`ts-app`]: new TsApp(),
-  [`ts-lib`]: new TsLib(),
-  [`golang-lib`]: new GolangLib(),
-  [`react-app`]: new ReactApp(),
+const templateMap: {
+  [type: string]: {
+    instance: InterfaceTemplate,
+    argsText: string,
+    desc?: string,
+  }
+} = {
+  electron: {
+    instance: new Electron(),
+    argsText: ``,
+  },
+  [`golang-web-server`]: {
+    instance: new GolangWebServer(),
+    argsText: ``,
+  },
+  [`golang-grpc-server`]: {
+    instance: new GolangGrpcServer(),
+    argsText: ``,
+  },
+  [`nodejs-web-server`]: {
+    instance: null,
+    argsText: ``,
+  },
+  [`ts-app`]: {
+    instance: new TsApp(),
+    argsText: ``,
+  },
+  [`ts-lib`]: {
+    instance: new TsLib(),
+    argsText: ``,
+  },
+  [`golang-lib`]: {
+    instance: new GolangLib(),
+    argsText: ``,
+  },
+  [`react-app`]: {
+    instance: new ReactApp(),
+    argsText: `[base_path]`,
+    desc: `example: react-app /test`,
+  },
 }
 
-let projectName, appType
-const program = new commander.Command(packageJson.name)
-  .version(packageJson.version, '-v, --version')
-  .arguments('<app-type> <project-directory>')
+let projectName, commandName, cmdObj, otherArgs
+const program = commander
   .name(packageJson.appName)
-  .usage(`${chalk.green(`<${Object.keys(templateMap).join('|')}>`)} ${chalk.green('<project-directory>')} [options]`)
-  .action((appType_, projectName_) => {
-    projectName = projectName_
-    appType = appType_
-  })
+  .version(packageJson.version, '-v, --version')
+  .arguments('<project-directory> <command>')
+  .usage(`${chalk.green('<project-directory>')} [command] [options]`)
   .allowUnknownOption()
   .option('-r, --repo [string]', 'repo to relate', ``)
   .option('-d, --desc [string]', 'description', ``)
-  .option('-o, --other [string]', 'other data. json string', `{}`)
+
+for (const [k, v] of Object.entries(templateMap)) {
+  program
+    .command(`${k} ${v.argsText}`, `create ${k}. ${v.desc || ""}`)
+}
+
+
+program
+  .action((projectName_: string, commandName_: string, cmdObj_: Command, otherArgs_: string[]) => {
+    projectName = projectName_
+    commandName = commandName_
+    cmdObj = cmdObj_
+    otherArgs = otherArgs_
+  })
   .parse(process.argv);
 
-if (!templateMap[appType]) {
-  console.error(`暂不支持此类型`)
-  process.exit(1)
-}
+console.log(commandName)
 const shellHelper = new ShellHelper()
-templateMap[appType].do(shellHelper, projectName, program.desc, program.repo, JSON.parse(program.other))
+templateMap[commandName].instance.do(shellHelper, projectName, program.desc, program.repo, otherArgs)
 if (program.repo) {
   shellHelper.execSync(`git init`)
   shellHelper.execSync(`git remote add origin ${program.repo}`)

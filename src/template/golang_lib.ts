@@ -6,7 +6,7 @@ export default class GolangLib implements InterfaceTemplate {
     return `git@github.com:pefish/create-golang-lib-template.git`
   }
 
-  do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, opts: {[x: string]: any}): void {
+  do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {
     if (!repoUrl) {
       throw new Error(`repo url is required`)
     }
