@@ -7,7 +7,6 @@ export default class ReactApp implements InterfaceTemplate {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
-    shellHelper.execSync(`cat package.json | sed "s/template_basepath/${basePath}/g" > temp && rm -rf package.json && mv temp package.json`)
     shellHelper.execSync(`cat package.json | sed "s/template/${projectName}/g" > temp && rm -rf package.json && mv temp package.json`)
     shellHelper.execSync(`cat nginx.conf | sed "s/template_basepath/${basePath}/g" > temp && rm -rf nginx.conf && mv temp nginx.conf`)
     shellHelper.execSync(`cd src && cat App.tsx | sed "s/template_basepath/${basePath}/g" > temp && rm -rf App.tsx && mv temp App.tsx`)
