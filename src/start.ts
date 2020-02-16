@@ -10,6 +10,7 @@ import ReactApp from './template/react_app'
 import Electron from './template/electron'
 import GolangWebServer from './template/golang_web_server'
 import GolangGrpcServer from './template/golang_grpc_server'
+import GolangApp from './template/golang_app';
 
 const packageJson = require('../package.json')
 
@@ -46,6 +47,10 @@ const templateMap: {
   },
   [`golang-lib`]: {
     instance: new GolangLib(),
+    argsText: ``,
+  },
+  [`golang-app`]: {
+    instance: new GolangApp(),
     argsText: ``,
   },
   [`react-app`]: {
