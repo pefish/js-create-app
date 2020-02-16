@@ -3,7 +3,7 @@ import ShellHelper from '@pefish/js-helper-shell'
 
 export default class GolangLib implements InterfaceTemplate {
   getTemplateRepoUrl(): string {
-    return `git@github.com:pefish/create-golang-lib-template.git`
+    return `https://github.com/pefish/create-golang-lib-template.git`
   }
 
   do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {

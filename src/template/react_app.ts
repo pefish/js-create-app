@@ -15,6 +15,6 @@ export default class ReactApp implements InterfaceTemplate {
   }
 
   getTemplateRepoUrl(): string {
-    return `git@github.com:pefish/create-react-app-template.git`
+    return `https://github.com/pefish/create-react-app-template.git`
   }
 }

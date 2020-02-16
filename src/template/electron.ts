@@ -16,6 +16,6 @@ export default class Electron implements InterfaceTemplate {
   }
 
   getTemplateRepoUrl(): string {
-    return `git@github.com:pefish/create-electron-app-template.git`
+    return `https://github.com/pefish/create-electron-app-template.git`
   }
 }

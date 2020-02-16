@@ -3,7 +3,7 @@ import ShellHelper from '@pefish/js-helper-shell'
 
 export default class TsLib implements InterfaceTemplate {
   getTemplateRepoUrl(): string {
-    return `git@github.com:pefish/create-typescript-lib-template.git`
+    return `https://github.com/pefish/create-typescript-lib-template.git`
   }
 
   do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {

@@ -3,7 +3,7 @@ import ShellHelper from '@pefish/js-helper-shell'
 
 export default class GolangWebServer implements InterfaceTemplate {
   getTemplateRepoUrl(): string {
-    return `git@github.com:pefish/create-golang-webserver-template.git`
+    return `https://github.com/pefish/create-golang-webserver-template.git`
   }
   do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
