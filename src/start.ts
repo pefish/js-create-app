@@ -11,6 +11,7 @@ import Electron from './template/electron'
 import GolangWebServer from './template/golang_web_server'
 import GolangGrpcServer from './template/golang_grpc_server'
 import GolangApp from './template/golang_app';
+import RustApp from './template/rust_app';
 
 const packageJson = require('../package.json')
 
@@ -57,6 +58,10 @@ const templateMap: {
     instance: new ReactApp(),
     argsText: `[base_path]`,
     desc: `example: react-app /test`,
+  },
+  [`rust-app`]: {
+    instance: new RustApp(),
+    argsText: ``,
   },
 }
 
