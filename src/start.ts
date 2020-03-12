@@ -12,6 +12,7 @@ import GolangWebServer from './template/golang_web_server'
 import GolangGrpcServer from './template/golang_grpc_server'
 import GolangApp from './template/golang_app';
 import RustApp from './template/rust_app';
+import RustLib from './template/rust_lib';
 
 const packageJson = require('../package.json')
 
@@ -61,6 +62,10 @@ const templateMap: {
   },
   [`rust-app`]: {
     instance: new RustApp(),
+    argsText: ``,
+  },
+  [`rust-lib`]: {
+    instance: new RustLib(),
     argsText: ``,
   },
 }
