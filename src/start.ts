@@ -74,8 +74,8 @@ let projectName, commandName, cmdObj, otherArgs
 const program = commander
   .name(packageJson.appName)
   .version(packageJson.version, '-v, --version')
-  .arguments('<project-directory> <command>')
-  .usage(`${chalk.green('<project-directory>')} [command] [options]`)
+  .arguments('<command> <project-directory>')
+  .usage(`[command] ${chalk.green('<project-directory>')} [options]`)
   .allowUnknownOption()
   .option('-r, --repo [string]', 'repo to relate', ``)
   .option('-d, --desc [string]', 'description', ``)
@@ -87,7 +87,7 @@ for (const [k, v] of Object.entries(templateMap)) {
 
 
 program
-  .action((projectName_: string, commandName_: string, cmdObj_: Command, otherArgs_: string[]) => {
+  .action((commandName_: string, projectName_: string, cmdObj_: Command, otherArgs_: string[]) => {
     projectName = projectName_
     commandName = commandName_
     cmdObj = cmdObj_
@@ -95,7 +95,7 @@ program
   })
   .parse(process.argv);
 
-console.log(commandName)
+// console.log(commandName)
 const shellHelper = new ShellHelper()
 templateMap[commandName].instance.do(shellHelper, projectName, program.desc, program.repo, otherArgs)
 if (program.repo) {
