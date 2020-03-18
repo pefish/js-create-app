@@ -97,7 +97,16 @@ program
 
 // console.log(commandName)
 const shellHelper = new ShellHelper()
+const oldCwd = process.cwd()
+let isCurrentDir = (projectName === `.` || projectName === `./`)
+if (isCurrentDir) {
+  projectName = "temp_"
+}
 templateMap[commandName].instance.do(shellHelper, projectName, program.desc, program.repo, otherArgs)
+if (isCurrentDir) {
+  shellHelper.cd(oldCwd)
+  shellHelper.execSync(`mv ${projectName}/* ./ && rm -rf ${projectName}/`)
+}
 if (program.repo) {
   shellHelper.execSync(`git init`)
   shellHelper.execSync(`git remote add origin ${program.repo}`)
