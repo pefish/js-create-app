@@ -13,6 +13,7 @@ import GolangGrpcServer from './template/golang_grpc_server'
 import GolangApp from './template/golang_app';
 import RustApp from './template/rust_app';
 import RustLib from './template/rust_lib';
+import { exists } from 'fs';
 
 const packageJson = require('../package.json')
 
@@ -23,7 +24,7 @@ const templateMap: {
     desc?: string,
   }
 } = {
-  electron: {
+  [`electron`]: {
     instance: new Electron(),
     argsText: ``,
   },
@@ -70,39 +71,39 @@ const templateMap: {
   },
 }
 
-let projectName, commandName, cmdObj, otherArgs
+let projectName, cmdObj, otherArgs
 const program = commander
   .name(packageJson.appName)
   .version(packageJson.version, '-v, --version')
-  .arguments('<command> <project-directory>')
-  .usage(`[command] ${chalk.green('<project-directory>')} [options]`)
+  .arguments('<project-directory>')
+  .usage(`${chalk.green('<project-directory>')} [options]`)
   .allowUnknownOption()
-  .option('-r, --repo [string]', 'repo to relate', ``)
-  .option('-d, --desc [string]', 'description', ``)
-
-for (const [k, v] of Object.entries(templateMap)) {
-  program
-    .command(`${k} ${v.argsText}`, `create ${k}. ${v.desc || ""}`)
-}
+  .requiredOption('-t, --type [string]', `Type. Available: [${Object.keys(templateMap).join(",")}]`)
+  .option('-r, --repo [string]', 'Repo to relate', ``)
+  .option('-d, --desc [string]', 'Description', ``)
 
 
 program
-  .action((commandName_: string, projectName_: string, cmdObj_: Command, otherArgs_: string[]) => {
+  .action((projectName_: string, cmdObj_: Command, otherArgs_: string[]) => {
     projectName = projectName_
-    commandName = commandName_
     cmdObj = cmdObj_
     otherArgs = otherArgs_
   })
   .parse(process.argv);
 
-// console.log(commandName)
+
 const shellHelper = new ShellHelper()
 const oldCwd = process.cwd()
 let isCurrentDir = (projectName === `.` || projectName === `./`)
 if (isCurrentDir) {
   projectName = "temp_"
 }
-templateMap[commandName].instance.do(shellHelper, projectName, program.desc, program.repo, otherArgs)
+if (!templateMap[program.type]) {
+  console.error(`type error`)
+  process.exit(1)
+}
+
+templateMap[program.type].instance.do(shellHelper, projectName, program.desc, program.repo, otherArgs)
 if (isCurrentDir) {
   shellHelper.cd(oldCwd)
   shellHelper.execSync(`mv ${projectName}/[^.]* ./ && rm -rf ${projectName}/`)
