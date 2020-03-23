@@ -78,9 +78,9 @@ const program = commander
   .arguments('<project-directory>')
   .usage(`${chalk.green('<project-directory>')} [options]`)
   .allowUnknownOption()
-  .requiredOption('-t, --type [string]', `Type. Available: [${Object.keys(templateMap).join(",")}]`)
-  .option('-r, --repo [string]', 'Repo to relate', ``)
-  .option('-d, --desc [string]', 'Description', ``)
+  .requiredOption('-t, --type [string]', `type. available: [${Object.keys(templateMap).join(",")}]`)
+  .option('-r, --repo [string]', 'repo to relate', ``)
+  .option('-d, --desc [string]', 'description', ``)
 
 
 program
