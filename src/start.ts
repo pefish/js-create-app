@@ -3,17 +3,16 @@ import commander, { Command } from 'commander'
 import chalk from 'chalk'
 import InterfaceTemplate from './template/interface_template'
 import TsLib from './template/ts_lib'
-import GolangLib from './template/golang_lib'
+import GoLib from './template/go_lib'
 import ShellHelper from '@pefish/js-helper-shell'
 import TsApp from './template/ts_app'
 import ReactApp from './template/react_app'
 import Electron from './template/electron'
-import GolangWebServer from './template/golang_web_server'
-import GolangGrpcServer from './template/golang_grpc_server'
-import GolangApp from './template/golang_app';
+import GoWebServer from './template/go_web_server'
+import GoGrpcServer from './template/go_grpc_server'
+import GoApp from './template/go_app';
 import RustApp from './template/rust_app';
 import RustLib from './template/rust_lib';
-import { exists } from 'fs';
 
 const packageJson = require('../package.json')
 
@@ -28,12 +27,12 @@ const templateMap: {
     instance: new Electron(),
     argsText: ``,
   },
-  [`golang-web-server`]: {
-    instance: new GolangWebServer(),
+  [`go-web-server`]: {
+    instance: new GoWebServer(),
     argsText: ``,
   },
-  [`golang-grpc-server`]: {
-    instance: new GolangGrpcServer(),
+  [`go-grpc-server`]: {
+    instance: new GoGrpcServer(),
     argsText: ``,
   },
   [`nodejs-web-server`]: {
@@ -48,12 +47,12 @@ const templateMap: {
     instance: new TsLib(),
     argsText: ``,
   },
-  [`golang-lib`]: {
-    instance: new GolangLib(),
+  [`go-lib`]: {
+    instance: new GoLib(),
     argsText: ``,
   },
-  [`golang-app`]: {
-    instance: new GolangApp(),
+  [`go-app`]: {
+    instance: new GoApp(),
     argsText: ``,
   },
   [`react-app`]: {

@@ -1,12 +1,13 @@
 import InterfaceTemplate from './interface_template'
 import ShellHelper from '@pefish/js-helper-shell'
 
-export default class GolangLib implements InterfaceTemplate {
+export default class GoApp implements InterfaceTemplate {
   getTemplateRepoUrl(): string {
-    return `https://github.com/pefish/create-golang-lib-template.git`
+    return `https://github.com/pefish/create-golang-app-template.git`
   }
 
   do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {
+    
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
@@ -22,8 +23,8 @@ export default class GolangLib implements InterfaceTemplate {
       if (!packageName) {
         throw new Error(`packageName parse error`)
       }
-
-      shellHelper.execSync(`cat go.mod | sed "s/create_golang_lib_template/${packageName.replaceAll_(`/`, "\\\/")}/g" > temp && rm -rf go.mod && mv temp go.mod`)
+      shellHelper.execSync(`cat go.mod | sed "s/create_golang_app_template/${packageName.replaceAll_(`/`, "\\\/")}/g" > temp && rm -rf go.mod && mv temp go.mod`)
     }
   }
+
 }

@@ -1,18 +1,17 @@
 import InterfaceTemplate from './interface_template'
 import ShellHelper from '@pefish/js-helper-shell'
 
-export default class GolangGrpcServer implements InterfaceTemplate {
+export default class GoWebServer implements InterfaceTemplate {
   getTemplateRepoUrl(): string {
-    return `https://github.com/pefish/create-golang-grpcserver-template.git`
+    return `https://github.com/pefish/create-golang-webserver-template.git`
   }
   do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
     shellHelper.execSync(`cat go.mod | sed "s/_template_/${projectName}/g" > temp && rm -rf go.mod && mv temp go.mod`)
-    shellHelper.execSync(`cat main.go | sed "s/_template_/${projectName}/g" > temp && rm -rf main.go && mv temp main.go`)
-    shellHelper.execSync(`cat client/main.go | sed "s/_template_/${projectName}/g" > client/temp && rm -rf client/main.go && mv client/temp client/main.go`)
-    shellHelper.execSync(`cat service/helloworld/helloworld.go | sed "s/_template_/${projectName}/g" > service/helloworld/temp && rm -rf service/helloworld/helloworld.go && mv service/helloworld/temp service/helloworld/helloworld.go`)
+    shellHelper.execSync(`cat bin/main/main.go | sed "s/_template_/${projectName}/g" > temp && rm -rf bin/main/main.go && mv temp bin/main/main.go`)
+    shellHelper.execSync(`cat route/login.go | sed "s/_template_/${projectName}/g" > route/temp && rm -rf route/login.go && mv route/temp route/login.go`)
     shellHelper.execSync(`cp config/sample.yaml config/local.yaml`)
     shellHelper.execSync(`cp secret/sample.yaml secret/local.yaml`)
   }
