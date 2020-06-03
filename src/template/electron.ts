@@ -8,11 +8,11 @@ export default class Electron implements InterfaceTemplate {
     shellHelper.execSync(`rm -rf .git`)
     shellHelper.execSync(`cd client && cat package.json | sed "s/template/${projectName}/g" > temp.json && rm -rf package.json && mv temp.json package.json`)
     shellHelper.execSync(`cd client/public && cat index.html | sed "s/template/${projectName}/g" > temp.html && rm -rf index.html && mv temp.html index.html`)
-    shellHelper.execSync(`cd server && cat package.json | sed "s/template/${projectName}/g" > temp.json && rm -rf package.json && mv temp.json package.json`)
+    shellHelper.execSync(`cat package.json | sed "s/template/${projectName}/g" > temp.json && rm -rf package.json && mv temp.json package.json`)
     shellHelper.execSync(`cd client && yarn`)
-    shellHelper.execSync(`cd server && yarn`)
-    shellHelper.execSync(`cd server && cp config/sample.yaml config/prod.yaml`)
-    shellHelper.execSync(`cd server && cp config/sample.yaml config/local.yaml`)
+    shellHelper.execSync(`yarn`)
+    shellHelper.execSync(`cp config/sample.yaml config/prod.yaml`)
+    shellHelper.execSync(`cp config/sample.yaml config/local.yaml`)
   }
 
   getTemplateRepoUrl(): string {
