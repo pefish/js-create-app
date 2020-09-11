@@ -19,9 +19,14 @@
     "typeRoots": [
       "node_modules/@types",
       "node_modules/@pefish"
-    ]
+    ],
+    "downlevelIteration": true,
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "node_modules/**/*"
   ]
 }
