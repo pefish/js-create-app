@@ -14,6 +14,7 @@ import GoApp from './template/go_app';
 import RustApp from './template/rust_app';
 import RustLib from './template/rust_lib';
 import ReactDApp from './template/react_dapp'
+import SolidityDApp from './template/solidity_dapp'
 
 const packageJson = require('../package.json')
 
@@ -62,6 +63,10 @@ const templateMap: {
   },
   [`react-dapp`]: {
     instance: new ReactDApp(),
+    argsText: ``,
+  },
+  [`solidity-dapp`]: {
+    instance: new SolidityDApp(),
     argsText: ``,
   },
   [`rust-app`]: {
