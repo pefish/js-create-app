@@ -1,5 +1,6 @@
 import InterfaceTemplate from './interface_template'
 import ShellHelper from '@pefish/js-helper-shell'
+import { StringUtil } from '@pefish/js-node-assist'
 
 export default class GoApp implements InterfaceTemplate {
   getTemplateRepoUrl(): string {
@@ -23,7 +24,7 @@ export default class GoApp implements InterfaceTemplate {
       if (!packageName) {
         throw new Error(`packageName parse error`)
       }
-      shellHelper.execSync(`cat go.mod | sed "s/create_golang_app_template/${packageName.replaceAll_(`/`, "\\\/")}/g" > temp && rm -rf go.mod && mv temp go.mod`)
+      shellHelper.execSync(`cat go.mod | sed "s/create_golang_app_template/${StringUtil.replaceAll_(packageName, `/`, "\\\/")}/g" > temp && rm -rf go.mod && mv temp go.mod`)
     }
   }
 

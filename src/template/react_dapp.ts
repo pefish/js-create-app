@@ -1,7 +1,7 @@
 import InterfaceTemplate from "./interface_template";
 import ShellHelper from '@pefish/js-helper-shell'
 
-export default class ReactApp implements InterfaceTemplate {
+export default class ReactDApp implements InterfaceTemplate {
   do(shellHelper: ShellHelper, projectName: string, desc: string, repoUrl: string, otherArgs: string[]): void {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
@@ -11,6 +11,6 @@ export default class ReactApp implements InterfaceTemplate {
   }
 
   getTemplateRepoUrl(): string {
-    return `https://github.com/pefish/create-react-app-template.git`
+    return `https://github.com/pefish/create-react-dapp-template.git`
   }
 }

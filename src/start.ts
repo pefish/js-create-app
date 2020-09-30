@@ -13,6 +13,7 @@ import GoGrpcServer from './template/go_grpc_server'
 import GoApp from './template/go_app';
 import RustApp from './template/rust_app';
 import RustLib from './template/rust_lib';
+import ReactDApp from './template/react_dapp'
 
 const packageJson = require('../package.json')
 
@@ -57,8 +58,11 @@ const templateMap: {
   },
   [`react-app`]: {
     instance: new ReactApp(),
-    argsText: `[base_path]`,
-    desc: `example: react-app /test`,
+    argsText: ``,
+  },
+  [`react-dapp`]: {
+    instance: new ReactDApp(),
+    argsText: ``,
   },
   [`rust-app`]: {
     instance: new RustApp(),

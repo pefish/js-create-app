@@ -14,10 +14,10 @@
   dependencies:
     shelljs "^0.8.3"
 
-"@pefish/js-node-assist@^0.6.14":
-  version "0.6.14"
-  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-0.6.14.tgz#ff52f51ece4e9fdae1fa16daf2185c62b53dc553"
-  integrity sha512-k0NEhAUETB/DHCceGAG2oJnmOEUaA8HFJjcgaKz3cBYoEI5maSYC9ZrJHLNEKNilqd2m8jF8ntNq6tr6t6iREw==
+"@pefish/js-node-assist@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@pefish/js-node-assist/-/js-node-assist-1.0.1.tgz#ce1f09a7e58ea155239f3ee7496de0e941c60f9a"
+  integrity sha512-jgYFd7bm2+Ub/AW1v3ZjA9c5UaxWEEyoNgmdNX9woUgHqfv9aslK3oiTBHbdIQ9g1Y7CZyek/AGBRrO0CkGXbA==
   dependencies:
     "@pefish/js-error" "^0.1.2"
     bignumber.js "^8.1.1"
