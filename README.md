@@ -6,6 +6,12 @@ Tool to create various projects based on templates.
 
 1. git（Windows请在Git Bash下运行。安装Git，移步 https://git-scm.com/downloads）
 
+## Install
+
+```shell
+yarn global add @pefish/create-app
+```
+
 ## Help
 
 ```shell
