@@ -114,7 +114,7 @@ if (!templateMap[program.type]) {
 templateMap[program.type].instance.do(shellHelper, projectName, program.desc, program.repo, otherArgs)
 if (isCurrentDir) {
   shellHelper.cd(oldCwd)
-  shellHelper.execSync(`mv ${projectName}/* ${projectName}/.* ./ && rm -rf ${projectName}/`)
+  shellHelper.execSync(`mv ${projectName}/.[!.]* ${projectName}/* ./ && rm -rf ${projectName}/`)
 }
 if (program.repo) {
   shellHelper.execSync(`git init`)
