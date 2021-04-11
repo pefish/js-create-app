@@ -1,6 +1,6 @@
 {
   "name": "@pefish/create-app",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "create app what you want",
   "author": "pefish <pefish@qq.com>",
   "repository": {
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "rm -rf lib && tsc",
     "start": "ts-node src/start.ts",
-    "prepublish": "yarn build",
+    "prepublishOnly": "yarn build",
     "check-dep": "npm-check"
   },
   "devDependencies": {
