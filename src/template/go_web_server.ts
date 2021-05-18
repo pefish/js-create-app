@@ -10,8 +10,6 @@ export default class GoWebServer implements InterfaceTemplate {
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
     shellHelper.execSync(`cat go.mod | sed "s/_template_/${projectName}/g" > temp && rm -rf go.mod && mv temp go.mod`)
-    shellHelper.execSync(`cat bin/main/main.go | sed "s/_template_/${projectName}/g" > temp && rm -rf bin/main/main.go && mv temp bin/main/main.go`)
-    shellHelper.execSync(`cat route/login.go | sed "s/_template_/${projectName}/g" > route/temp && rm -rf route/login.go && mv route/temp route/login.go`)
     shellHelper.execSync(`cp config/sample.yaml config/local.yaml`)
     shellHelper.execSync(`cp secret/sample.yaml secret/local.yaml`)
   }
