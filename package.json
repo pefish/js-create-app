@@ -1,6 +1,6 @@
 {
   "name": "@pefish/create-app",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "description": "create app what you want",
   "author": "pefish <pefish@qq.com>",
   "repository": {
@@ -15,7 +15,7 @@
     "create app"
   ],
   "dependencies": {
-    "@pefish/js-helper-shell": "^0.1.1",
+    "@pefish/js-helper-shell": "^0.1.2",
     "@pefish/js-node-assist": "^1.0.1",
     "chalk": "^2.4.2",
     "commander": "^5.0.0"

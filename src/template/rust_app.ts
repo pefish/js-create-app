@@ -10,10 +10,8 @@ export default class RustApp implements InterfaceTemplate {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b master --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
-    shellHelper.execSync(`cat Cargo.toml | sed "s/create-rust-app-template/${projectName}/g" > temp && rm -rf Cargo.toml && mv temp Cargo.toml`)
-    shellHelper.execSync(`cat Cargo.toml | sed "s/_description_/${desc}/g" > temp && rm -rf Cargo.toml && mv temp Cargo.toml`)
-    shellHelper.execSync(`cargo update`)
-    shellHelper.execSync(`cp config/sample.yaml config/local.yaml`)
+    shellHelper.withEnv("NAME", projectName).withEnv("DESC", desc).execSync(`./init.sh`)
+    shellHelper.execSync(`rm -rf ./init.sh`)
   }
 
 }

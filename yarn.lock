@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@pefish/js-error/-/js-error-0.1.2.tgz#89913c01f960318fa5108e79d99c27ad90b4430f"
   integrity sha512-JFM3pW2MhGwOwdaSfUw79DsE52oh27meYzL07B/gkX7+oF0ByVs1/BuEFMBaTk5RMnMijN0lCEuCpfZgcShO3A==
 
-"@pefish/js-helper-shell@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@pefish/js-helper-shell/-/js-helper-shell-0.1.1.tgz#62ee014504ce42a6913cf98b6f794a8e52352a92"
-  integrity sha512-Z+PXO2XI5w3MzFXWkWAQqtvRY+hze6xJzMPAE1RjW2xY1wj8vbC244Uryk6NBnSjNXQGizrfkuDbf4xKMsyhDw==
+"@pefish/js-helper-shell@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@pefish/js-helper-shell/-/js-helper-shell-0.1.2.tgz#5fc055e82c32f014c7437cfccffac5e4bd2f90b9"
+  integrity sha512-vWaoh0mC4ZqziJnuBTJp1ZWtNjN6yrb1naz0zZdDwNscZzASfugRAEYK2EA7LR99UjBy+LZoB2TV7Czi3mBr8Q==
   dependencies:
     shelljs "^0.8.3"
 
