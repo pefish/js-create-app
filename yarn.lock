@@ -283,7 +283,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>":
   version: 1.11.1
-  resolution: "resolve@patch:resolve@npm%3A1.11.1#~builtin<compat/resolve>::version=1.11.1&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.11.1#~builtin<compat/resolve>::version=1.11.1&hash=07638b"
   dependencies:
     path-parse: ^1.0.6
   checksum: fc3e272f1b1016888441d4d78591f7cfa7eed88a24e3d1fa52299e91135c37fd455232c394972b8e1fcc1b8433b62db943d1a7cc4f18a7a0593eb15f99668777
@@ -291,15 +291,15 @@ __metadata:
   linkType: hard
 
 "shelljs@npm:^0.8.3":
-  version: 0.8.3
-  resolution: "shelljs@npm:0.8.3"
+  version: 0.8.5
+  resolution: "shelljs@npm:0.8.5"
   dependencies:
     glob: ^7.0.0
     interpret: ^1.0.0
     rechoir: ^0.6.2
   bin:
-    shjs: ./bin/shjs
-  checksum: 482df6006e7ea562702e149312a3ca829976606cbe945acfc664cc012999845e4aa6c010a1007701248e4da8c68ef105e3c4f33a85e73b021c37826c6faa5bd8
+    shjs: bin/shjs
+  checksum: 7babc46f732a98f4c054ec1f048b55b9149b98aa2da32f6cf9844c434b43c6251efebd6eec120937bd0999e13811ebd45efe17410edb3ca938f82f9381302748
   languageName: node
   linkType: hard
 
@@ -361,7 +361,7 @@ __metadata:
 
 "typescript@patch:typescript@^4.0.2#~builtin<compat/typescript>":
   version: 4.0.2
-  resolution: "typescript@patch:typescript@npm%3A4.0.2#~builtin<compat/typescript>::version=4.0.2&hash=ed6a74"
+  resolution: "typescript@patch:typescript@npm%3A4.0.2#~builtin<compat/typescript>::version=4.0.2&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
