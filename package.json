@@ -21,9 +21,7 @@
     "commander": "^5.0.0"
   },
   "appName": "create-app",
-  "bin": {
-    "create-app": "app.js"
-  },
+  "bin": "app.js",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "start": "ts-node src/start.ts",
