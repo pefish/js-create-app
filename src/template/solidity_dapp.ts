@@ -6,7 +6,7 @@ export default class SolidityDApp implements InterfaceTemplate {
     shellHelper.execSync(`git clone ${this.getTemplateRepoUrl()} --single-branch -v -b main --depth 1 ${projectName}`)
     shellHelper.cd(projectName)
     shellHelper.execSync(`rm -rf .git`)
-    shellHelper.execSync(`yarn`)
+    shellHelper.execSync(`npm install`)
   }
 
   getTemplateRepoUrl(): string {
